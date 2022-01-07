@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Unrestricted xhr Tests</title>
+    <link rel="stylesheet" href="mocha.css" />
+  </head>
+  <body>
+    <div id="mocha"></div>
+
+    <script src="chai.js"></script>
+    <script src="mocha.js"></script>
+
+    <script class="mocha-init">
+      window.assert = chai.assert;
+      window.testServerUrl = "http://localhost:3000";
+      mocha.setup('bdd');
+      mocha.checkLeaks();
+    </script>
+    <script src="tests/cookies.js"></script>
+    <script src="tests/cors.js"></script>
+    <script src="tests/auth.js"></script>
+    <script src="tests/headers.js"></script>
+    <script class="mocha-exec">
+      mocha.run();
+    </script>
+  </body>
+</html>
